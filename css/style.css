@@ -1,0 +1,84 @@
+html {
+  font-family: Helvetica, sans-serif;
+}
+
+fieldset {
+  padding: 0;
+  max-width: 200px;
+  display: inline-flex;
+  flex-direction: column;
+  border: 0;
+}
+
+
+.options {
+  display: flex;
+}
+
+
+/* Color Swatches */
+
+.sample {
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Menlo, sans-serif;
+}
+
+.sample--color1 {
+  background: var(--color1);
+}
+
+.sample--color2 {
+  background: var(--color2);
+}
+
+.sample--color3 {
+  background: var(--color3);
+}
+
+.sample--color4 {
+  background: var(--color4);
+}
+
+.sample--color5 {
+  background: var(--color5);
+}
+
+.sample--color6 {
+  background: var(--color6);
+}
+
+[type="range"] {
+  margin-right: 4ch;
+  position: relative;
+}
+
+[type="range"]::after {
+  content: attr(value);
+  display: block;
+  position: absolute;
+  right: -1ch;
+  transform: translateX(100%);
+}
+
+
+/* Code Samples */
+
+.code-samples {
+  display: flex;
+  justify-content: space-around;
+}
+
+pre {
+  padding: 1em 2em;
+  color: var(--fgColor);
+  background: var(--bgColor);
+}
+
+code {
+  font-family: Menlo, monospace;
+  font-size: 0.7rem;
+}
