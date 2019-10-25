@@ -44,57 +44,78 @@ function getHexes() {
   fgSaturation = parseInt(document.getElementById('fgSaturation').value) / 100;
   bgSaturation = parseInt(document.getElementById('bgSaturation').value) / 100;
 
+  nbDiff = parseInt(document.getElementById('nbDiff').value) / 100;
+
 
   // Set our hues
 
-  bgHue = normalizeHue(baseHue);
-  fgHue = normalizeHue(baseHue);
-
   var hue = [];
 
-  hue[0] = normalizeHue(baseHue - distribution * 2);
-  hue[1] = normalizeHue(baseHue - distribution);
-  hue[2] = normalizeHue(baseHue);
-  hue[3] = normalizeHue(baseHue + distribution);
-  hue[4] = normalizeHue(baseHue + distribution * 2);
-  hue[5] = normalizeHue(baseHue + distribution * 3);
+  hue[1] = normalizeHue(baseHue - distribution * 2);
+  hue[2] = normalizeHue(baseHue - distribution);
+  hue[3] = normalizeHue(baseHue);
+  hue[4] = normalizeHue(baseHue + distribution);
+  hue[5] = normalizeHue(baseHue + distribution * 2);
+  hue[6] = normalizeHue(baseHue + distribution * 3);
 
 
   // Set our hexes
 
-  bgHex = normalizeHsv({'h': bgHue, 's': bgSaturation, 'v': bgLuminance});
-  fgHex = normalizeHsv({'h': bgHue, 's': bgSaturation / 2, 'v': fgLuminance});
-
   var hex = [];
-  for (var i = 0; i < 6; i++) {
-    hex[i] = normalizeHsv({'h': hue[i], 's': fgSaturation, 'v': fgLuminance});
-  }
-
   var hsv = [];
-  for (var i = 0; i < 6; i++) {
+
+  for (var i = 1; i < 7; i++) {
+    hex[i] = normalizeHsv({'h': hue[i], 's': fgSaturation, 'v': fgLuminance});
     hsv[i] = normalizeHsv({'h': hue[i], 's': fgSaturation, 'v': fgLuminance}, 'hsb');
   }
+
+  for (var i = 9; i < 15; i++) {
+    hex[i] = normalizeHsv({'h': hue[i - 8], 's': fgSaturation, 'v': fgLuminance + nbDiff});
+    hsv[i] = normalizeHsv({'h': hue[i - 8], 's': fgSaturation, 'v': fgLuminance + nbDiff}, 'hsb');
+  }
+
+
+  if (document.getElementById("complement").checked) {
+    hex[6] = normalizeHsv({'h': normalizeHue(baseHue + 180), 's': fgSaturation, 'v': fgLuminance});
+    hsv[6] = normalizeHsv({'h': normalizeHue(baseHue + 180), 's': fgSaturation, 'v': fgLuminance}, 'hsb');
+    hex[14] = normalizeHsv({'h': normalizeHue(baseHue + 180), 's': fgSaturation, 'v': fgLuminance + nbDiff});
+    hsv[14] = normalizeHsv({'h': normalizeHue(baseHue + 180), 's': fgSaturation, 'v': fgLuminance + nbDiff}, 'hsb');
+  }
+
+
+  // Grayscale hexes
+  hex[0] = normalizeHsv({'h': baseHue, 's': bgSaturation, 'v': bgLuminance});
+  hsv[0] = normalizeHsv({'h': baseHue, 's': bgSaturation, 'v': bgLuminance}, 'hsb');
+
+  hex[7] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': fgLuminance});
+  hsv[7] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': fgLuminance}, 'hsb');
+
+  hex[8] = normalizeHsv({'h': baseHue, 's': bgSaturation, 'v': bgLuminance + nbDiff});
+  hsv[8] = normalizeHsv({'h': baseHue, 's': bgSaturation, 'v': bgLuminance + nbDiff}, 'hsb');
+
+  hex[15] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': fgLuminance + nbDiff});
+  hsv[15] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': fgLuminance + nbDiff}, 'hsb');
 
 
   // Set our custom properties
 
-  for (var i = 0; i < 6; i++) {
-    document.documentElement.style.setProperty('--color' + (i + 1), hex[i]);
+  for (var i = 0; i < 16; i++) {
+    document.documentElement.style.setProperty('--color' + i, hex[i]);
   }
 
 
   // Put values in the swatches for copying
   
   if (document.getElementById("showAsHex").checked) {
-    for (i = 0; i < 6; i++) {
-      document.getElementById("sample" + (i + 1)).innerHTML = hex[i];
+    for (i = 0; i < 16; i++) {
+      document.getElementById("sample" + i).innerHTML = hex[i];
     }
   } else {
-    for (i = 0; i < 6; i++) {
-      document.getElementById("sample" + (i + 1)).innerHTML = printHsv(hsv[i]);
+    for (i = 0; i < 16; i++) {
+      document.getElementById("sample" + i).innerHTML = printHsv(hsv[i]);
     }
   }
 
-  document.documentElement.style.setProperty('--fgColor', fgHex);
-  document.documentElement.style.setProperty('--bgColor', bgHex);
+  document.documentElement.style.setProperty('--fgColor', hex[7]);
+  document.documentElement.style.setProperty('--bgColor', hex[0]);
 }

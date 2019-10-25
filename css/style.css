@@ -16,40 +16,7 @@ fieldset {
 }
 
 
-/* Color Swatches */
-
-.sample {
-  width: 100px;
-  height: 100px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Menlo, sans-serif;
-}
-
-.sample--color1 {
-  background: var(--color1);
-}
-
-.sample--color2 {
-  background: var(--color2);
-}
-
-.sample--color3 {
-  background: var(--color3);
-}
-
-.sample--color4 {
-  background: var(--color4);
-}
-
-.sample--color5 {
-  background: var(--color5);
-}
-
-.sample--color6 {
-  background: var(--color6);
-}
+/* Range Inputs */
 
 [type="range"] {
   margin-right: 4ch;
@@ -81,4 +48,80 @@ pre {
 code {
   font-family: Menlo, monospace;
   font-size: 0.7rem;
+}
+
+
+/* Color Swatches */
+
+.sample {
+  width: 100px;
+  height: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Menlo, sans-serif;
+}
+
+.sample--color0 {
+  background: var(--color0);
+}
+
+.sample--color1 {
+  background: var(--color1);
+}
+
+.sample--color2 {
+  background: var(--color2);
+}
+
+.sample--color3 {
+  background: var(--color3);
+}
+
+.sample--color4 {
+  background: var(--color4);
+}
+
+.sample--color5 {
+  background: var(--color5);
+}
+
+.sample--color6 {
+  background: var(--color6);
+}
+
+.sample--color7 {
+  background: var(--color7);
+}
+
+.sample--color8 {
+  background: var(--color8);
+}
+
+.sample--color9 {
+  background: var(--color9);
+}
+
+.sample--color10 {
+  background: var(--color10);
+}
+
+.sample--color11 {
+  background: var(--color11);
+}
+
+.sample--color12 {
+  background: var(--color12);
+}
+
+.sample--color13 {
+  background: var(--color13);
+}
+
+.sample--color14 {
+  background: var(--color14);
+}
+
+.sample--color15 {
+  background: var(--color15);
 }
