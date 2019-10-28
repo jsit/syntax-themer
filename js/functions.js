@@ -12,6 +12,14 @@ function normalizeHsv(hsL, type, log) {
     i++;
   }
 
+  if (document.getElementById("prioritizeSat").checked) {
+    nextHsv = {'h': nextHsv.h, 's': hsL.s, 'v': nextHsv.v};
+  }
+
+  if (document.getElementById("prioritizeSplit").checked) {
+    nextHsv = {'h': nextHsv.h, 's': (hsL.s + nextHsv.s) / 2, 'v': nextHsv.v};
+  }
+
   if (type == 'hsb') {
     return nextHsv;
   } else {

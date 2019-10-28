@@ -41,46 +41,57 @@
     </fieldset>
 
     <fieldset>
+      <label>Prioritize Luminance</label>
+      <input type="radio" name="priority" id="prioritizeLum" checked oninput="getHexes(); this.setAttribute('value', this.value);">
+
+      <label>Prioritize Saturation</label>
+      <input type="radio" name="priority" id="prioritizeSat" oninput="getHexes(); this.setAttribute('value', this.value);">
+
+      <label>Split Difference</label>
+      <input type="radio" name="priority" id="prioritizeSplit" oninput="getHexes(); this.setAttribute('value', this.value);">
+    </fieldset>
+
+    <fieldset>
       <input id="complement" type="checkbox" oninput="getHexes(); this.setAttribute('value', this.value);">
       <label for="complement">Complementary color?</label>
     </fieldset>
 
-    <div class="samples">
+  </section>
 
-      <fieldset class="samples-toggle">
-        <input id="showAsHex" type="radio" name="asdf" checked oninput="getHexes();">Hex</input>
-        <input id="showAsHsb" type="radio" name="asdf" oninput="getHexes();">HSB</input>
-      </fieldset>
+  <div class="samples">
 
-      <div class="samples-swatches">
+    <fieldset class="samples-toggle">
+      <input id="showAsHex" type="radio" name="asdf" checked oninput="getHexes();">Hex</input>
+      <input id="showAsHsb" type="radio" name="asdf" oninput="getHexes();">HSB</input>
+    </fieldset>
 
-        <div id="sample0" class="sample sample--color0"></div>
-        <div id="sample1" class="sample sample--color1"></div>
-        <div id="sample2" class="sample sample--color2"></div>
-        <div id="sample3" class="sample sample--color3"></div>
-        <div id="sample4" class="sample sample--color4"></div>
-        <div id="sample5" class="sample sample--color5"></div>
-        <div id="sample6" class="sample sample--color6"></div>
-        <div id="sample7" class="sample sample--color7"></div>
+    <div class="samples-swatches">
 
-      </div>
-
-      <div class="samples-swatches">
-
-        <div id="sample8" class="sample sample--color8"></div>
-        <div id="sample9" class="sample sample--color9"></div>
-        <div id="sample10" class="sample sample--color10"></div>
-        <div id="sample11" class="sample sample--color11"></div>
-        <div id="sample12" class="sample sample--color12"></div>
-        <div id="sample13" class="sample sample--color13"></div>
-        <div id="sample14" class="sample sample--color14"></div>
-        <div id="sample15" class="sample sample--color15"></div>
-
-      </div>
+      <div id="sample0" class="sample sample--color0"></div>
+      <div id="sample1" class="sample sample--color1"></div>
+      <div id="sample2" class="sample sample--color2"></div>
+      <div id="sample3" class="sample sample--color3"></div>
+      <div id="sample4" class="sample sample--color4"></div>
+      <div id="sample5" class="sample sample--color5"></div>
+      <div id="sample6" class="sample sample--color6"></div>
+      <div id="sample7" class="sample sample--color7"></div>
 
     </div>
 
-  </section>
+    <div class="samples-swatches">
+
+      <div id="sample8" class="sample sample--color8"></div>
+      <div id="sample9" class="sample sample--color9"></div>
+      <div id="sample10" class="sample sample--color10"></div>
+      <div id="sample11" class="sample sample--color11"></div>
+      <div id="sample12" class="sample sample--color12"></div>
+      <div id="sample13" class="sample sample--color13"></div>
+      <div id="sample14" class="sample sample--color14"></div>
+      <div id="sample15" class="sample sample--color15"></div>
+
+    </div>
+
+  </div>
 
   <section class="code-samples">
 

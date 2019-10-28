@@ -1,3 +1,6 @@
+// From:
+// https://gist.github.com/idettman/a85fc24d9dda610fea5ddd836864fe71
+//
 // Conversion formulas based on http://www.easyrgb.com/index.php?X=MATH, copyright 2012 IRO Group Limited
 // Distance formula based on "CMC l:c" from http://www.brucelindbloom.com/index.html?Eqn_DeltaE_CMC.html
 
