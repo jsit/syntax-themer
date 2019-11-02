@@ -124,7 +124,7 @@ code {
   height: 100px;
   display: inline-flex;
   justify-content: center;
-  flex-shrink: 1;
+  flex-shrink: 0;
   flex-grow: 1;
   align-items: center;
   font-family: Menlo, sans-serif;

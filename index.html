@@ -109,14 +109,32 @@
 
     <fieldset class="samples-toggle">
       <p>Color Codes:</p>
-      <input id="showAsHex" type="radio" name="colorCode" checked oninput="getHexes();">Hex</input>
-      <input id="showAsHsb" type="radio" name="colorCode" oninput="getHexes();">HSB</input>
+
+      <div class="field">
+        <input id="showAsHex" type="radio" name="colorCode" checked oninput="getHexes();">
+        <label for="showAsHex">Hex</label>
+      </div>
+
+      <div class="field">
+        <input id="showAsHsb" type="radio" name="colorCode" oninput="getHexes();">
+        <label for="showAsHsb">HSB</label>
+      </div>
+
     </fieldset>
 
     <fieldset class="theme-toggle">
       <p>Theme:</p>
-      <input id="themeDark" type="radio" name="theme" checked oninput="changeTheme();">Dark</input>
-      <input id="themeLight" type="radio" name="theme" oninput="changeTheme();">Light</input>
+
+      <div class="field">
+        <input id="themeDark" type="radio" name="theme" checked oninput="changeTheme();">
+        <label for="themeDark">Dark</label>
+      </div>
+
+      <div class="field">
+        <input id="themeLight" type="radio" name="theme" oninput="changeTheme();">
+        <label for="themeLight">Light</label>
+      </div>
+
     </fieldset>
 
     <fieldset>
@@ -174,21 +192,21 @@
         <li>
           <div class="field">
             <input type="radio" name="priority" id="prioritizeLum" checked oninput="getHexes(); this.setAttribute('value', this.value);">
-            <label>Luminance</label>
+            <label for="prioritizeLum">Luminance</label>
           </div>
         </li>
 
         <li>
           <div class="field">
             <input type="radio" name="priority" id="prioritizeSat" oninput="getHexes(); this.setAttribute('value', this.value);">
-            <label>Saturation</label>
+            <label for="prioritizeSat">Saturation</label>
           </div>
         </li>
 
         <li>
           <div class="field">
             <input type="radio" name="priority" id="prioritizeSplit" oninput="getHexes(); this.setAttribute('value', this.value);">
-            <label>Split Difference</label>
+            <label for="prioritizeSplit">Split Difference</label>
           </div>
         </li>
       </ul>
