@@ -41,3 +41,49 @@
 .token.variable {
 	color: var(--color6);
 }
+
+/* Light Theme */
+
+.code-samples--light .token.property,
+.code-samples--light .token.tag,
+.code-samples--light .token.boolean,
+.code-samples--light .token.number,
+.code-samples--light .token.constant,
+.code-samples--light .token.symbol,
+.code-samples--light .token.deleted {
+	color: var(--color1);
+}
+
+.code-samples--light .token.selector,
+.code-samples--light .token.attr-name,
+.code-samples--light .token.string,
+.code-samples--light .token.char,
+.code-samples--light .token.builtin,
+.code-samples--light .token.inserted {
+	color: var(--color2);
+}
+
+.code-samples--light .token.operator,
+.code-samples--light .token.entity,
+.code-samples--light .token.url,
+.code-samples--light .language-css .token.string,
+.code-samples--light .style .token.string {
+	color: var(--color3);
+}
+
+.code-samples--light .token.atrule,
+.code-samples--light .token.attr-value,
+.code-samples--light .token.keyword {
+	color: var(--color4);
+}
+
+.code-samples--light .token.function,
+.code-samples--light .token.class-name {
+	color: var(--color5);
+}
+
+.code-samples--light .token.regex,
+.code-samples--light .token.important,
+.code-samples--light .token.variable {
+	color: var(--color6);
+}

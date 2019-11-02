@@ -13,87 +13,39 @@
 
 <body>
 
-  <section class="options">
+  <div class="swatches">
 
-    <fieldset>
-      <label>Base Hue</label>
-      <input id="baseHue" type="range" min="0" max="359" value="225" oninput="getHexes(); this.setAttribute('value', this.value);">
+    <div class="swatch-row">
 
-      <label>Distribution</label>
-      <input id="distribution" type="range" min="5" max="60" value="30" oninput="getHexes(); this.setAttribute('value', this.value);">
-
-      <label>Contrast</label>
-      <input id="contrast" type="range" min="30" max="100" value="60" oninput="getHexes(); this.setAttribute('value', this.value);">
-
-      <label>Foreground Saturation</label>
-      <input id="fgSaturation" type="range" min="0" max="100" value="80" oninput="getHexes(); this.setAttribute('value', this.value);">
-
-      <label>Normal/Bright Difference</label>
-      <input id="nbDiff" type="range" min="0" max="10" value="5" oninput="getHexes(); this.setAttribute('value', this.value);">
-    </fieldset>
-
-    <fieldset>
-      <label>Background Luminance</label>
-      <input id="bgLuminance" type="range" min="0" max="50" value="15" oninput="getHexes(); this.setAttribute('value', this.value);">
-
-      <label>Background Saturation</label>
-      <input id="bgSaturation" type="range" min="0" max="100" value="15" oninput="getHexes(); this.setAttribute('value', this.value);">
-    </fieldset>
-
-    <fieldset>
-      <label>Prioritize Luminance</label>
-      <input type="radio" name="priority" id="prioritizeLum" checked oninput="getHexes(); this.setAttribute('value', this.value);">
-
-      <label>Prioritize Saturation</label>
-      <input type="radio" name="priority" id="prioritizeSat" oninput="getHexes(); this.setAttribute('value', this.value);">
-
-      <label>Split Difference</label>
-      <input type="radio" name="priority" id="prioritizeSplit" oninput="getHexes(); this.setAttribute('value', this.value);">
-    </fieldset>
-
-    <fieldset>
-      <input id="complement" type="checkbox" oninput="getHexes(); this.setAttribute('value', this.value);">
-      <label for="complement">Complementary color?</label>
-    </fieldset>
-
-  </section>
-
-  <div class="samples">
-
-    <fieldset class="samples-toggle">
-      <input id="showAsHex" type="radio" name="asdf" checked oninput="getHexes();">Hex</input>
-      <input id="showAsHsb" type="radio" name="asdf" oninput="getHexes();">HSB</input>
-    </fieldset>
-
-    <div class="samples-swatches">
-
-      <div id="sample0" class="sample sample--color0"></div>
-      <div id="sample1" class="sample sample--color1"></div>
-      <div id="sample2" class="sample sample--color2"></div>
-      <div id="sample3" class="sample sample--color3"></div>
-      <div id="sample4" class="sample sample--color4"></div>
-      <div id="sample5" class="sample sample--color5"></div>
-      <div id="sample6" class="sample sample--color6"></div>
-      <div id="sample7" class="sample sample--color7"></div>
+      <div id="swatch16" class="swatch"></div>
+      <div id="swatch0" class="swatch"></div>
+      <div id="swatch1" class="swatch"></div>
+      <div id="swatch2" class="swatch"></div>
+      <div id="swatch3" class="swatch"></div>
+      <div id="swatch4" class="swatch"></div>
+      <div id="swatch5" class="swatch"></div>
+      <div id="swatch6" class="swatch"></div>
+      <div id="swatch7" class="swatch"></div>
 
     </div>
 
-    <div class="samples-swatches">
+    <div class="swatch-row">
 
-      <div id="sample8" class="sample sample--color8"></div>
-      <div id="sample9" class="sample sample--color9"></div>
-      <div id="sample10" class="sample sample--color10"></div>
-      <div id="sample11" class="sample sample--color11"></div>
-      <div id="sample12" class="sample sample--color12"></div>
-      <div id="sample13" class="sample sample--color13"></div>
-      <div id="sample14" class="sample sample--color14"></div>
-      <div id="sample15" class="sample sample--color15"></div>
+      <div id="swatch17" class="swatch"></div>
+      <div id="swatch8" class="swatch"></div>
+      <div id="swatch9" class="swatch"></div>
+      <div id="swatch10" class="swatch"></div>
+      <div id="swatch11" class="swatch"></div>
+      <div id="swatch12" class="swatch"></div>
+      <div id="swatch13" class="swatch"></div>
+      <div id="swatch14" class="swatch"></div>
+      <div id="swatch15" class="swatch"></div>
 
     </div>
 
   </div>
 
-  <section class="code-samples">
+  <section id="code-samples">
 
     <pre class="language-scss">
       <code>
@@ -150,6 +102,104 @@
 })();
       </code>
     </pre>
+
+  </section>
+
+  <section class="options">
+
+    <fieldset class="samples-toggle">
+      <p>Color Codes:</p>
+      <input id="showAsHex" type="radio" name="colorCode" checked oninput="getHexes();">Hex</input>
+      <input id="showAsHsb" type="radio" name="colorCode" oninput="getHexes();">HSB</input>
+    </fieldset>
+
+    <fieldset class="theme-toggle">
+      <p>Theme:</p>
+      <input id="themeDark" type="radio" name="theme" checked oninput="changeTheme();">Dark</input>
+      <input id="themeLight" type="radio" name="theme" oninput="changeTheme();">Light</input>
+    </fieldset>
+
+    <fieldset>
+
+      <div class="field">
+        <label>Base Hue</label>
+        <input id="baseHue" type="range" min="0" max="359" value="225" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+      <div class="field">
+        <label>Distribution</label>
+        <input id="distribution" type="range" min="5" max="60" value="30" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+      <div class="field">
+        <label>Contrast</label>
+        <input id="contrast" type="range" min="30" max="100" value="60" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+      <div class="field">
+        <label>Foreground Saturation</label>
+        <input id="fgSaturation" type="range" min="0" max="100" value="80" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+      <div class="field">
+        <label>Normal/Bright Difference</label>
+        <input id="nbDiff" type="range" min="0" max="10" value="5" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+
+      <div class="field">
+        <label>Background Luminance</label>
+        <input id="bgLuminance" type="range" min="0" max="50" value="15" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+      <div class="field">
+        <label>Background Saturation</label>
+        <input id="bgSaturation" type="range" min="0" max="100" value="15" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+      <div class="field">
+        <label>Light Background</label>
+        <input id="bgLight" type="range" min="0" max="100" value="95" oninput="getHexes(); this.setAttribute('value', this.value);">
+      </div>
+
+    </fieldset>
+
+    <fieldset>
+      <p>Prioritize:</p>
+
+      <ul>
+        <li>
+          <div class="field">
+            <input type="radio" name="priority" id="prioritizeLum" checked oninput="getHexes(); this.setAttribute('value', this.value);">
+            <label>Luminance</label>
+          </div>
+        </li>
+
+        <li>
+          <div class="field">
+            <input type="radio" name="priority" id="prioritizeSat" oninput="getHexes(); this.setAttribute('value', this.value);">
+            <label>Saturation</label>
+          </div>
+        </li>
+
+        <li>
+          <div class="field">
+            <input type="radio" name="priority" id="prioritizeSplit" oninput="getHexes(); this.setAttribute('value', this.value);">
+            <label>Split Difference</label>
+          </div>
+        </li>
+      </ul>
+    </fieldset>
+
+    <fieldset>
+      <div class="field">
+        <input id="complement" type="checkbox" oninput="getHexes(); this.setAttribute('value', this.value);">
+        <label for="complement">Add Complement</label>
+      </div>
+    </fieldset>
 
   </section>
 

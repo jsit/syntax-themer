@@ -41,6 +41,10 @@ function printHsv(hsv) {
   return Math.round(hsv.h) + '<br>' + Math.round(hsv.s * 100) + '<br>' + Math.round(hsv.v * 100);
 }
 
+function changeTheme() {
+  document.getElementById('code-samples').classList.toggle("light");
+}
+
 function getHexes() {
   baseHue = parseInt(document.getElementById('baseHue').value);
   distribution = parseInt(document.getElementById('distribution').value);
@@ -48,6 +52,7 @@ function getHexes() {
 
   bgLuminance = parseInt(document.getElementById('bgLuminance').value) / 100;
   fgLuminance = Math.min(100, (bgLuminance * 100 + contrast)) / 100;
+  lightLuminance = parseInt(document.getElementById('bgLight').value) / 100;
 
   fgSaturation = parseInt(document.getElementById('fgSaturation').value) / 100;
   bgSaturation = parseInt(document.getElementById('bgSaturation').value) / 100;
@@ -104,10 +109,17 @@ function getHexes() {
   hex[15] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': fgLuminance + nbDiff});
   hsv[15] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': fgLuminance + nbDiff}, 'hsb');
 
+  hex[16] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': lightLuminance});
+  hsv[16] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': lightLuminance}, 'hsb');
+
+  hex[17] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': lightLuminance + nbDiff});
+  hsv[17] = normalizeHsv({'h': baseHue, 's': bgSaturation / 2, 'v': lightLuminance + nbDiff}, 'hsb');
+  console.log(hsv[17]);
+
 
   // Set our custom properties
 
-  for (var i = 0; i < 16; i++) {
+  for (var i = 0; i < 18; i++) {
     document.documentElement.style.setProperty('--color' + i, hex[i]);
   }
 
@@ -115,12 +127,12 @@ function getHexes() {
   // Put values in the swatches for copying
   
   if (document.getElementById("showAsHex").checked) {
-    for (i = 0; i < 16; i++) {
-      document.getElementById("sample" + i).innerHTML = hex[i];
+    for (i = 0; i < 18; i++) {
+      document.getElementById("swatch" + i).innerHTML = hex[i];
     }
   } else {
-    for (i = 0; i < 16; i++) {
-      document.getElementById("sample" + i).innerHTML = printHsv(hsv[i]);
+    for (i = 0; i < 18; i++) {
+      document.getElementById("swatch" + i).innerHTML = printHsv(hsv[i]);
     }
   }
 
