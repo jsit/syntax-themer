@@ -127,7 +127,7 @@ code {
   flex-shrink: 0;
   flex-grow: 1;
   align-items: center;
-  font-family: Menlo, sans-serif;
+  font-family: Menlo, monospace;
 }
 
 #swatch0 { background: var(--color0); }
